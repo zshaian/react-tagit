@@ -1,1 +1,1 @@
-export { SmartRating } from "./smartrating";
+export { InputTag } from "./rc-input-tag";

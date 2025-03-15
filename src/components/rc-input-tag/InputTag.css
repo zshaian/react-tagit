@@ -1,0 +1,24 @@
+.input-tag-container {
+  cursor: text;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid rgb(70, 70, 70);
+}
+
+.tag-list {
+  width: max-content;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  list-style-type: none;
+}
+
+.tag-input {
+  border: none;
+  background-color: inherit;
+}

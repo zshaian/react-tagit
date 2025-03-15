@@ -6,7 +6,6 @@
   align-items: center;
   gap: 0.2rem;
   list-style-type: none;
-  border-radius: 10px;
   background-color: rgb(32, 32, 32);
 }
 
@@ -22,7 +21,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   border: none;
   background-color: transparent;
   transition: all 0.1s ease-in-out;

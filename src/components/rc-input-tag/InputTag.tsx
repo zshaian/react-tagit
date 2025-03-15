@@ -7,6 +7,7 @@ export default function InputTag({
   label = "Tags",
   separator = "Enter",
   onCreateTag = () => {},
+  onRemoveTag = () => {},
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
@@ -37,7 +38,11 @@ export default function InputTag({
   };
 
   const handleRemoveTag = (tagName: string) => {
-    setTags(tags.filter((tag) => tag !== tagName));
+    setTags((previousTags) => {
+      const updatedTags = previousTags.filter((tag) => tag !== tagName);
+      onRemoveTag(tagName, updatedTags);
+      return updatedTags;
+    });
   };
 
   return (

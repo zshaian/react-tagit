@@ -4,6 +4,7 @@ import "./InputTag.css";
 import type { InputTagProps } from "./InputTag.stories.types";
 
 export default function InputTag({
+  initialTags = [],
   label = "Tags",
   separator = "Enter",
   onCreateTag = () => {},
@@ -11,7 +12,7 @@ export default function InputTag({
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
-  const [tags, setTags] = useState<Array<string>>([]);
+  const [tags, setTags] = useState<Array<string>>([...new Set(initialTags)]);
 
   const valueIsNotAlreadyInTags =
     tags.filter(

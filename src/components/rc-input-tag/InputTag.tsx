@@ -24,6 +24,9 @@ export default function InputTag({
   const separatorTriggerKey = separator === "Enter" ? "Enter" : " ";
 
   const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Backspace" && !valueIsNotEmpty && tags.length > 0) {
+      handleRemoveTag(tags[tags.length - 1]);
+    }
     if (
       event.key === separatorTriggerKey &&
       valueIsNotEmpty &&

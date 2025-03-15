@@ -1,21 +1,37 @@
 import { Tag } from "../tag";
 import { Fragment, useRef, useState } from "react";
 import "./InputTag.css";
+import type { InputTagProps } from "./InputTag.stories.types";
 
-export default function InputTag() {
+export default function InputTag({
+  label = "Tags",
+  separator = "Enter",
+  onCreateTag = () => {},
+}: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
   const [tags, setTags] = useState<Array<string>>([]);
 
-  const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const valueIsNotAlreadyInTags =
-      tags.filter((tag) => tag.toLowerCase() === tagInputValue.toLowerCase())
-        .length === 0;
-    const valueIsNotEmpty =
-      tagInputValue.trim() !== "" && tagInputValue.length !== 0;
+  const valueIsNotAlreadyInTags =
+    tags.filter(
+      (tag) => tag.toLowerCase().trim() === tagInputValue.toLowerCase().trim()
+    ).length === 0;
+  const valueIsNotEmpty =
+    tagInputValue.trim() !== "" && tagInputValue.length > 0;
 
-    if (event.key === "Enter" && valueIsNotEmpty && valueIsNotAlreadyInTags) {
-      setTags((previousTags) => [...previousTags, tagInputValue]);
+  const separatorTriggerKey = separator === "Enter" ? "Enter" : " ";
+
+  const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (
+      event.key === separatorTriggerKey &&
+      valueIsNotEmpty &&
+      valueIsNotAlreadyInTags
+    ) {
+      setTags((previousTags) => {
+        const updatedTags = [...previousTags, tagInputValue];
+        onCreateTag(tagInputValue, updatedTags);
+        return updatedTags;
+      });
       setTagInputValue("");
     }
   };
@@ -29,6 +45,9 @@ export default function InputTag() {
       className="input-tag-container"
       onClick={() => inputTagRef.current!.focus()}
     >
+      <label htmlFor="tag-input" className="tag-input-label">
+        {label}
+      </label>
       <ul className="tag-list">
         {tags.map((tag) => (
           <Fragment key={tag}>
@@ -37,6 +56,7 @@ export default function InputTag() {
         ))}
         <li>
           <input
+            id="tag-input"
             ref={inputTagRef}
             type="text"
             className="tag-input"

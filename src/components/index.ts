@@ -1,0 +1,1 @@
+export { SmartRating } from "./smartrating";

@@ -11,7 +11,8 @@ export default function InputTag() {
     const valueIsNotAlreadyInTags =
       tags.filter((tag) => tag.toLowerCase() === tagInputValue.toLowerCase())
         .length === 0;
-    const valueIsNotEmpty = tagInputValue !== "" && tagInputValue.length !== 0;
+    const valueIsNotEmpty =
+      tagInputValue.trim() !== "" && tagInputValue.length !== 0;
 
     if (event.key === "Enter" && valueIsNotEmpty && valueIsNotAlreadyInTags) {
       setTags((previousTags) => [...previousTags, tagInputValue]);

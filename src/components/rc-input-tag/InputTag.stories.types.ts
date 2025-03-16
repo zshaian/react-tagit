@@ -1,4 +1,10 @@
 export type InputTagProps = {
+  autoFocus?: boolean;
+  labelStyleProps?: React.CSSProperties;
+  inputStyleProps?: React.CSSProperties;
+  tagsContainerStyleProps?: React.CSSProperties;
+  tagsStyleProps?: React.CSSProperties;
+  removeTagBtnStyleProps?: React.CSSProperties;
   initialTags?: Array<string>;
   label?: string;
   separator?: "Enter" | "Space";

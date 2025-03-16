@@ -16,6 +16,8 @@ export type InputTagProps = {
   removeTagBtnStyleProps?: React.CSSProperties;
   initialTags?: Array<string>;
   label?: string;
+  maxTags?: number;
+  maxTagsValue?: number;
   separator?: "Enter" | "Space";
   theme?: "theme-1" | "theme-2" | "theme-3";
   onCreateTag?: (newTag: string, tags: Array<string>) => void;

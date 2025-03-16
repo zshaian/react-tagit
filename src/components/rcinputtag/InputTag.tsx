@@ -13,6 +13,8 @@ export default function InputTag({
   removeTagBtnStyleProps,
   initialTags = [],
   label = "Tags",
+  maxTags,
+  maxTagsValue,
   separator = "Enter",
   theme,
   onCreateTag = () => {},
@@ -30,6 +32,8 @@ export default function InputTag({
     ).length === 0;
   const valueIsNotEmpty =
     tagInputValue.trim() !== "" && tagInputValue.length > 0;
+  const isLessThanMaxTags =
+    maxTags && maxTags > 0 ? tags.length < maxTags : true;
 
   const separatorTriggerKey = separator === "Enter" ? "Enter" : " ";
 
@@ -40,7 +44,8 @@ export default function InputTag({
     if (
       event.key === separatorTriggerKey &&
       valueIsNotEmpty &&
-      valueIsNotAlreadyInTags
+      valueIsNotAlreadyInTags &&
+      isLessThanMaxTags
     ) {
       setTags((previousTags) => {
         const updatedTags = [...previousTags, tagInputValue];
@@ -109,6 +114,7 @@ export default function InputTag({
             onChange={(event) => setTagInputValue(event.target.value)}
             autoFocus={autoFocus}
             minLength={1}
+            maxLength={maxTagsValue}
             style={inputStyleProps}
             onBlur={onBlur}
             onFocus={onFocus}

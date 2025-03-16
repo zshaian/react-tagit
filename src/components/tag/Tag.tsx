@@ -2,6 +2,9 @@ import "./Tag.css";
 import type { TagProps } from "./Tag.types";
 
 export default function Tag({
+  customTagItemClass,
+  customRemoveButtonClass,
+  customTagContentClass,
   tagName,
   tagsStyleProps,
   removeTagBtnStyleProps,
@@ -9,9 +12,14 @@ export default function Tag({
   onRemoveTag,
 }: TagProps) {
   return (
-    <li className={`tag-item ${theme}-tag-item`} style={tagsStyleProps}>
+    <li
+      className={`${customTagItemClass ||"input-tag-tag-item-element"} input-tag-tag-item ${theme}-input-tag-tag-item`}
+      style={tagsStyleProps}
+    >
       <button
-        className={`input-tags-remove-btn tag-item__remove-btn ${theme}-tag-item__remove-btn`}
+        className={`${
+          customRemoveButtonClass || "input-tag-tag-remove-btn-element"
+        } input-tag-tag-remove-btn ${theme}-input-tag-tag-remove-btn`}
         style={removeTagBtnStyleProps}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           event.stopPropagation();
@@ -20,7 +28,13 @@ export default function Tag({
       >
         ✕
       </button>
-      <span className="input-tags-tag-content">{tagName}</span>
+      <span
+        className={`${
+          customTagContentClass || "input-tag-tag-content-element"
+        }`}
+      >
+        {tagName}
+      </span>
     </li>
   );
 }

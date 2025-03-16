@@ -5,6 +5,7 @@ import type { InputTagProps } from "./InputTag.stories.types";
 
 export default function InputTag({
   autoFocus = false,
+  customClass,
   labelStyleProps,
   inputStyleProps,
   tagsContainerStyleProps,
@@ -58,23 +59,33 @@ export default function InputTag({
 
   return (
     <section
-      className="input-tag-container"
+      className={`${
+        customClass?.inputTagContainerElement || "input-tag-container-element"
+      } input-tag-container`}
       onClick={() => inputTagRef.current!.focus()}
     >
       <label
         htmlFor="tag-input"
-        className={`input-tags-label tag-input-label ${theme}-tag-input-label`}
+        className={`${
+          customClass?.inputTagLabelElement || "input-tag-label-element"
+        } input-tag-label ${theme}-input-tag-label`}
         style={labelStyleProps}
       >
         {label}
       </label>
       <ul
-        className={`input-tags-container tag-list ${theme}-tag-list`}
+        className={`${
+          customClass?.inputTagListContainerElement ||
+          "input-tag-list-container-element"
+        } input-tag-list-container ${theme}-input-tag-list-container`}
         style={tagsContainerStyleProps}
       >
         {tags.map((tag) => (
           <Fragment key={tag}>
             <Tag
+              customTagItemClass={customClass?.inputTagTagItemElement}
+              customRemoveButtonClass={customClass?.inputTagTagRemoveBtnElement}
+              customTagContentClass={customClass?.inputTagTagContentElement}
               tagName={tag}
               tagsStyleProps={tagsStyleProps}
               removeTagBtnStyleProps={removeTagBtnStyleProps}
@@ -88,7 +99,9 @@ export default function InputTag({
             id="tag-input"
             ref={inputTagRef}
             type="text"
-            className={`input-tags-input tag-input ${theme}-tag-input`}
+            className={`${
+              customClass?.inputTagInputElement || "input-tag-input-element"
+            } input-tag-input ${theme}-input-tag-input`}
             value={tagInputValue}
             onKeyDown={handleSetTags}
             onChange={(event) => setTagInputValue(event.target.value)}

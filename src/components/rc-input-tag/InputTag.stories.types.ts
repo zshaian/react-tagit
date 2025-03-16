@@ -1,5 +1,14 @@
 export type InputTagProps = {
   autoFocus?: boolean;
+  customClass?: {
+    inputTagContainerElement?: string;
+    inputTagLabelElement?: string;
+    inputTagInputElement?: string;
+    inputTagListContainerElement?: string;
+    inputTagTagItemElement?: string;
+    inputTagTagRemoveBtnElement?: string;
+    inputTagTagContentElement?: string;
+  };
   labelStyleProps?: React.CSSProperties;
   inputStyleProps?: React.CSSProperties;
   tagsContainerStyleProps?: React.CSSProperties;

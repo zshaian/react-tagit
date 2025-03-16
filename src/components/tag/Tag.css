@@ -1,4 +1,4 @@
-.tag-item {
+.input-tag-tag-item {
   margin: 0;
   padding: 0 0.5rem 0 0;
   display: flex;
@@ -7,11 +7,11 @@
   list-style-type: none;
 }
 
-.tag-item__remove-btn {
+.input-tag-tag-remove-btn {
   cursor: pointer;
 }
 
-.theme-1-tag-item {
+.theme-1-input-tag-tag-item {
   padding: 0.2rem 0.5rem;
   color: white;
   background-color: rgb(39, 39, 39);
@@ -20,7 +20,7 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.theme-1-tag-item__remove-btn {
+.theme-1-input-tag-tag-remove-btn {
   color: white;
   border: none;
   padding: 0 0.2rem;
@@ -30,20 +30,20 @@
   transition: all 0.2s ease;
 }
 
-.theme-1-tag-item__remove-btn:hover {
+.theme-1-input-tag-tag-remove-btn:hover {
   color: black;
   background-color: white;
 }
 
-.theme-2-tag-item,
-.theme-3-tag-item {
+.theme-2-input-tag-tag-item,
+.theme-3-input-tag-tag-item {
   padding: 0.3rem;
   background-color: rgb(199, 199, 199);
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.theme-2-tag-item__remove-btn {
+.theme-2-input-tag-tag-remove-btn {
   color: white;
   padding: 0.1rem 0.3rem 0.15rem 0.3rem;
   font-weight: bold;
@@ -52,13 +52,13 @@
   background-color: rgb(207, 31, 31);
 }
 
-.theme-3-tag-item {
+.theme-3-input-tag-tag-item {
   align-items: stretch;
   padding: 0;
   padding-right: 0.3rem;
 }
 
-.theme-3-tag-item__remove-btn {
+.theme-3-input-tag-tag-remove-btn {
   color: white;
   border: none;
   background-color: rgb(126, 126, 126);

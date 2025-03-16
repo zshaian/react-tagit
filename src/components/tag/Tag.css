@@ -3,15 +3,63 @@
   padding: 0 0.5rem 0 0;
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.3rem;
   list-style-type: none;
 }
 
 .tag-item__remove-btn {
   cursor: pointer;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.1s ease-in-out;
+}
+
+.theme-1-tag-item {
+  padding: 0.2rem 0.5rem;
+  color: white;
+  background-color: rgb(39, 39, 39);
+  border-radius: 5px;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.theme-1-tag-item__remove-btn {
+  color: white;
+  border: none;
+  padding: 0 0.2rem;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.theme-1-tag-item__remove-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.theme-2-tag-item,
+.theme-3-tag-item {
+  padding: 0.3rem;
+  background-color: rgb(199, 199, 199);
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.theme-2-tag-item__remove-btn {
+  color: white;
+  padding: 0.1rem 0.3rem 0.15rem 0.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  background-color: rgb(207, 31, 31);
+}
+
+.theme-3-tag-item {
+  align-items: stretch;
+  padding: 0;
+  padding-right: 0.3rem;
+}
+
+.theme-3-tag-item__remove-btn {
+  color: white;
+  border: none;
+  background-color: rgb(126, 126, 126);
 }

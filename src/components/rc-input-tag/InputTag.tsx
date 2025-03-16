@@ -13,6 +13,7 @@ export default function InputTag({
   initialTags = [],
   label = "Tags",
   separator = "Enter",
+  theme,
   onCreateTag = () => {},
   onRemoveTag = () => {},
 }: InputTagProps) {
@@ -62,13 +63,13 @@ export default function InputTag({
     >
       <label
         htmlFor="tag-input"
-        className="input-tags-label tag-input-label"
+        className={`input-tags-label tag-input-label ${theme}-tag-input-label`}
         style={labelStyleProps}
       >
         {label}
       </label>
       <ul
-        className="input-tags-container tag-list"
+        className={`input-tags-container tag-list ${theme}-tag-list`}
         style={tagsContainerStyleProps}
       >
         {tags.map((tag) => (
@@ -77,6 +78,7 @@ export default function InputTag({
               tagName={tag}
               tagsStyleProps={tagsStyleProps}
               removeTagBtnStyleProps={removeTagBtnStyleProps}
+              theme={theme}
               onRemoveTag={handleRemoveTag}
             />
           </Fragment>
@@ -86,7 +88,7 @@ export default function InputTag({
             id="tag-input"
             ref={inputTagRef}
             type="text"
-            className="input-tags-input tag-input"
+            className={`input-tags-input tag-input ${theme}-tag-input`}
             value={tagInputValue}
             onKeyDown={handleSetTags}
             onChange={(event) => setTagInputValue(event.target.value)}

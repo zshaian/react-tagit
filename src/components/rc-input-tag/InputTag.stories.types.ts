@@ -8,6 +8,7 @@ export type InputTagProps = {
   initialTags?: Array<string>;
   label?: string;
   separator?: "Enter" | "Space";
+  theme?: "theme-1" | "theme-2" | "theme-3";
   onCreateTag?: (newTag: string, tags: Array<string>) => void;
   onRemoveTag?: (removedTag: string, tags: Array<string>) => void;
 };

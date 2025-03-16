@@ -5,12 +5,13 @@ export default function Tag({
   tagName,
   tagsStyleProps,
   removeTagBtnStyleProps,
+  theme,
   onRemoveTag,
 }: TagProps) {
   return (
-    <li className="tag-item" style={tagsStyleProps}>
+    <li className={`tag-item ${theme}-tag-item`} style={tagsStyleProps}>
       <button
-        className="input-tags-remove-btn tag-item__remove-btn"
+        className={`input-tags-remove-btn tag-item__remove-btn ${theme}-tag-item__remove-btn`}
         style={removeTagBtnStyleProps}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           event.stopPropagation();

@@ -24,7 +24,7 @@ export default function InputTag({
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
-  const [tags, setTags] = useState<Array<string>>([...new Set(initialTags)]);
+  const [tags, setTags] = useState<Array<string>>(initialTags);
 
   const valueIsNotAlreadyInTags =
     tags.filter(

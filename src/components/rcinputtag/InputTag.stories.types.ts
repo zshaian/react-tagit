@@ -9,6 +9,7 @@ export type InputTagProps = {
     inputTagTagRemoveBtnElement?: string;
     inputTagTagContentElement?: string;
   };
+  disabled?: boolean;
   labelStyleProps?: React.CSSProperties;
   inputStyleProps?: React.CSSProperties;
   tagsContainerStyleProps?: React.CSSProperties;

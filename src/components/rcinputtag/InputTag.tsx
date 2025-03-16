@@ -6,6 +6,7 @@ import type { InputTagProps } from "./InputTag.stories.types";
 export default function InputTag({
   autoFocus = false,
   customClass,
+  disabled = false,
   labelStyleProps,
   inputStyleProps,
   tagsContainerStyleProps,
@@ -85,7 +86,10 @@ export default function InputTag({
           customClass?.inputTagListContainerElement ||
           "input-tag-list-container-element"
         } input-tag-list-container ${theme}-input-tag-list-container`}
-        style={tagsContainerStyleProps}
+        style={{
+          cursor: disabled ? "default" : "text",
+          ...tagsContainerStyleProps,
+        }}
       >
         {tags.map((tag) => (
           <Fragment key={tag}>
@@ -93,6 +97,7 @@ export default function InputTag({
               customTagItemClass={customClass?.inputTagTagItemElement}
               customRemoveButtonClass={customClass?.inputTagTagRemoveBtnElement}
               customTagContentClass={customClass?.inputTagTagContentElement}
+              disabled={disabled}
               tagName={tag}
               tagsStyleProps={tagsStyleProps}
               removeTagBtnStyleProps={removeTagBtnStyleProps}
@@ -104,6 +109,7 @@ export default function InputTag({
         <li>
           <input
             id="tag-input"
+            aria-label={`${label} input`}
             ref={inputTagRef}
             type="text"
             className={`${
@@ -118,6 +124,7 @@ export default function InputTag({
             style={inputStyleProps}
             onBlur={onBlur}
             onFocus={onFocus}
+            disabled={disabled}
           />
         </li>
       </ul>

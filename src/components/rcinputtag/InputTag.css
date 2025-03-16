@@ -5,6 +5,7 @@
 }
 
 .input-tag-list-container {
+  cursor: text;
   padding: 1rem;
   margin: 0;
   display: flex;
@@ -12,13 +13,16 @@
   flex-wrap: wrap;
   list-style-type: none;
   border-radius: 5px;
-  cursor: text;
   border: 1px solid rgb(70, 70, 70);
+}
+
+.input-tag-list-container:has(input:disabled) {
+  border: 1px solid rgba(70, 70, 70, 0.349);
 }
 
 .input-tag-input {
   border: none;
-  background-color: inherit;
+  background-color: transparent;
 }
 
 .input-tag-label {

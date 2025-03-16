@@ -53,13 +53,16 @@
 }
 
 .theme-3-input-tag-tag-item {
-  align-items: stretch;
   padding: 0;
-  padding-right: 0.3rem;
+  gap: 0rem;
 }
 
 .theme-3-input-tag-tag-remove-btn {
   color: white;
   border: none;
   background-color: rgb(126, 126, 126);
+}
+
+.theme-3-input-tag-tag-content {
+  padding: 0 0.3rem;
 }

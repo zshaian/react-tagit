@@ -1,1 +1,1 @@
-export { InputTag } from "./rc-input-tag";
+export { InputTag } from "./rcinputtag";

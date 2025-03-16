@@ -20,4 +20,6 @@ export type InputTagProps = {
   theme?: "theme-1" | "theme-2" | "theme-3";
   onCreateTag?: (newTag: string, tags: Array<string>) => void;
   onRemoveTag?: (removedTag: string, tags: Array<string>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 };

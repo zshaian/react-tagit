@@ -17,6 +17,8 @@ export default function InputTag({
   theme,
   onCreateTag = () => {},
   onRemoveTag = () => {},
+  onFocus = () => {},
+  onBlur = () => {},
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
@@ -108,6 +110,8 @@ export default function InputTag({
             autoFocus={autoFocus}
             minLength={1}
             style={inputStyleProps}
+            onBlur={onBlur}
+            onFocus={onFocus}
           />
         </li>
       </ul>

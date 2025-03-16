@@ -4,6 +4,12 @@ import "./InputTag.css";
 import type { InputTagProps } from "./InputTag.stories.types";
 
 export default function InputTag({
+  autoFocus = false,
+  labelStyleProps,
+  inputStyleProps,
+  tagsContainerStyleProps,
+  tagsStyleProps,
+  removeTagBtnStyleProps,
   initialTags = [],
   label = "Tags",
   separator = "Enter",
@@ -54,13 +60,25 @@ export default function InputTag({
       className="input-tag-container"
       onClick={() => inputTagRef.current!.focus()}
     >
-      <label htmlFor="tag-input" className="tag-input-label">
+      <label
+        htmlFor="tag-input"
+        className="input-tags-label tag-input-label"
+        style={labelStyleProps}
+      >
         {label}
       </label>
-      <ul className="tag-list">
+      <ul
+        className="input-tags-container tag-list"
+        style={tagsContainerStyleProps}
+      >
         {tags.map((tag) => (
           <Fragment key={tag}>
-            <Tag tagName={tag} onRemoveTag={handleRemoveTag} />
+            <Tag
+              tagName={tag}
+              tagsStyleProps={tagsStyleProps}
+              removeTagBtnStyleProps={removeTagBtnStyleProps}
+              onRemoveTag={handleRemoveTag}
+            />
           </Fragment>
         ))}
         <li>
@@ -68,10 +86,13 @@ export default function InputTag({
             id="tag-input"
             ref={inputTagRef}
             type="text"
-            className="tag-input"
+            className="input-tags-input tag-input"
             value={tagInputValue}
             onKeyDown={handleSetTags}
             onChange={(event) => setTagInputValue(event.target.value)}
+            autoFocus={autoFocus}
+            minLength={1}
+            style={inputStyleProps}
           />
         </li>
       </ul>

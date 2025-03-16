@@ -1,4 +1,6 @@
 export type TagProps = {
-  onRemoveTag: (tagName: string) => void;
   tagName: string;
+  tagsStyleProps?: React.CSSProperties;
+  removeTagBtnStyleProps?: React.CSSProperties;
+  onRemoveTag: (tagName: string) => void;
 };

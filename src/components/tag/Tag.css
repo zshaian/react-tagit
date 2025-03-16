@@ -1,28 +1,17 @@
 .tag-item {
-  color: white;
   margin: 0;
   padding: 0 0.5rem 0 0;
   display: flex;
   align-items: center;
   gap: 0.2rem;
   list-style-type: none;
-  background-color: rgb(32, 32, 32);
-}
-
-.tag-item:hover {
-  background-color: rgb(88, 88, 88);
 }
 
 .tag-item__remove-btn {
   cursor: pointer;
-  color: white;
-  padding: 0.2rem 0.4rem;
-  font-size: 0.75rem;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background-color: transparent;
   transition: all 0.1s ease-in-out;
-  background-color: rgb(116, 116, 116);
 }

@@ -12,6 +12,7 @@ export default function InputTag({
   tagsContainerStyleProps,
   tagsStyleProps,
   removeTagBtnStyleProps,
+  hideLabel = false,
   initialTags = [],
   label = "Tags",
   maxTags,
@@ -77,7 +78,7 @@ export default function InputTag({
         className={`${
           customClass?.inputTagLabelElement || "input-tag-label-element"
         } input-tag-label ${theme}-input-tag-label`}
-        style={labelStyleProps}
+        style={{ ...labelStyleProps, display: hideLabel ? "none" : "block" }}
       >
         {label}
       </label>

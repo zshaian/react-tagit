@@ -15,6 +15,7 @@ export type InputTagProps = {
   tagsContainerStyleProps?: React.CSSProperties;
   tagsStyleProps?: React.CSSProperties;
   removeTagBtnStyleProps?: React.CSSProperties;
+  hideLabel?: boolean;
   initialTags?: Array<string>;
   label?: string;
   maxTags?: number;

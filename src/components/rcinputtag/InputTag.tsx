@@ -13,35 +13,33 @@ export default function InputTag({
   tagsStyleProps,
   removeTagBtnStyleProps,
   hideLabel = false,
-  initialTags = [],
   label = "Tags",
   maxTags,
   maxTagsValue,
   separator = "Enter",
   theme,
-  onCreateTag = () => {},
-  onRemoveTag = () => {},
+  value,
+  onChange,
   onFocus = () => {},
   onBlur = () => {},
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
   const [tagInputValue, setTagInputValue] = useState<string>("");
-  const [tags, setTags] = useState<Array<string>>(initialTags);
 
   const valueIsNotAlreadyInTags =
-    tags.filter(
+    value.filter(
       (tag) => tag.toLowerCase().trim() === tagInputValue.toLowerCase().trim()
     ).length === 0;
   const valueIsNotEmpty =
     tagInputValue.trim() !== "" && tagInputValue.length > 0;
   const isLessThanMaxTags =
-    maxTags && maxTags > 0 ? tags.length < maxTags : true;
+    maxTags && maxTags > 0 ? value.length < maxTags : true;
 
   const separatorTriggerKey = separator === "Enter" ? "Enter" : " ";
 
   const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Backspace" && !valueIsNotEmpty && tags.length > 0) {
-      handleRemoveTag(tags[tags.length - 1]);
+    if (event.key === "Backspace" && !valueIsNotEmpty && value.length > 0) {
+      handleRemoveTag(value[value.length - 1]);
     }
     if (
       event.key === separatorTriggerKey &&
@@ -49,21 +47,13 @@ export default function InputTag({
       valueIsNotAlreadyInTags &&
       isLessThanMaxTags
     ) {
-      setTags((previousTags) => {
-        const updatedTags = [...previousTags, tagInputValue];
-        onCreateTag(tagInputValue, updatedTags);
-        return updatedTags;
-      });
+      onChange((previousTags) => [...previousTags, tagInputValue]);
       setTagInputValue("");
     }
   };
 
   const handleRemoveTag = (tagName: string) => {
-    setTags((previousTags) => {
-      const updatedTags = previousTags.filter((tag) => tag !== tagName);
-      onRemoveTag(tagName, updatedTags);
-      return updatedTags;
-    });
+    onChange((previousTags) => previousTags.filter((tag) => tag !== tagName));
   };
 
   return (
@@ -92,7 +82,7 @@ export default function InputTag({
           ...tagsContainerStyleProps,
         }}
       >
-        {tags.map((tag) => (
+        {value.map((tag) => (
           <Fragment key={tag}>
             <Tag
               customTagItemClass={customClass?.inputTagTagItemElement}

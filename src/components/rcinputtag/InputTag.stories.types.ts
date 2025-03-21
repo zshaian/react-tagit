@@ -16,14 +16,13 @@ export type InputTagProps = {
   tagsStyleProps?: React.CSSProperties;
   removeTagBtnStyleProps?: React.CSSProperties;
   hideLabel?: boolean;
-  initialTags?: Array<string>;
   label?: string;
   maxTags?: number;
   maxTagsValue?: number;
   separator?: "Enter" | "Space";
   theme?: "theme-1" | "theme-2" | "theme-3";
-  onCreateTag?: (newTag: string, tags: Array<string>) => void;
-  onRemoveTag?: (removedTag: string, tags: Array<string>) => void;
+  value: Array<string>;
+  onChange: React.Dispatch<React.SetStateAction<Array<string>>>;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 };

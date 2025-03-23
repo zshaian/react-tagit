@@ -1,3 +1,4 @@
+import React from "react";
 import { Tag } from "../tag";
 import { Fragment, useRef, useState } from "react";
 import "./InputTag.css";

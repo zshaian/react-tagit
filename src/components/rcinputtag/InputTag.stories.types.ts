@@ -19,8 +19,8 @@ export type InputTagProps = {
   label?: string;
   maxTags?: number;
   maxTagsValue?: number;
-  separator?: "Enter" | "Space";
-  theme?: "theme-1" | "theme-2" | "theme-3";
+  separator?: 'Enter' | 'Space';
+  theme?: 'theme-1' | 'theme-2' | 'theme-3';
   value: Array<string>;
   onChange: React.Dispatch<React.SetStateAction<Array<string>>>;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;

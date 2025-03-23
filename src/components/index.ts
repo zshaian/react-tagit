@@ -1,1 +1,1 @@
-export { InputTag } from "./rcinputtag";
+export { InputTag } from './rcinputtag';

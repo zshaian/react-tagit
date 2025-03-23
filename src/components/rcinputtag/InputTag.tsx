@@ -1,8 +1,8 @@
-import React from "react";
-import { Tag } from "../tag";
-import { Fragment, useRef, useState } from "react";
-import "./InputTag.css";
-import type { InputTagProps } from "./InputTag.stories.types";
+import React from 'react';
+import { Tag } from '../tag';
+import { Fragment, useRef, useState } from 'react';
+import './InputTag.css';
+import type { InputTagProps } from './InputTag.stories.types';
 
 export default function InputTag({
   autoFocus = false,
@@ -14,10 +14,10 @@ export default function InputTag({
   tagsStyleProps,
   removeTagBtnStyleProps,
   hideLabel = false,
-  label = "Tags",
+  label = 'Tags',
   maxTags,
   maxTagsValue,
-  separator = "Enter",
+  separator = 'Enter',
   theme,
   value,
   onChange,
@@ -25,21 +25,21 @@ export default function InputTag({
   onBlur = () => {},
 }: InputTagProps) {
   const inputTagRef = useRef<HTMLInputElement>(null);
-  const [tagInputValue, setTagInputValue] = useState<string>("");
+  const [tagInputValue, setTagInputValue] = useState<string>('');
 
   const valueIsNotAlreadyInTags =
     value.filter(
-      (tag) => tag.toLowerCase().trim() === tagInputValue.toLowerCase().trim()
+      tag => tag.toLowerCase().trim() === tagInputValue.toLowerCase().trim(),
     ).length === 0;
   const valueIsNotEmpty =
-    tagInputValue.trim() !== "" && tagInputValue.length > 0;
+    tagInputValue.trim() !== '' && tagInputValue.length > 0;
   const isLessThanMaxTags =
     maxTags && maxTags > 0 ? value.length < maxTags : true;
 
-  const separatorTriggerKey = separator === "Enter" ? "Enter" : " ";
+  const separatorTriggerKey = separator === 'Enter' ? 'Enter' : ' ';
 
   const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Backspace" && !valueIsNotEmpty && value.length > 0) {
+    if (event.key === 'Backspace' && !valueIsNotEmpty && value.length > 0) {
       handleRemoveTag(value[value.length - 1]);
     }
     if (
@@ -48,42 +48,42 @@ export default function InputTag({
       valueIsNotAlreadyInTags &&
       isLessThanMaxTags
     ) {
-      onChange((previousTags) => [...previousTags, tagInputValue]);
-      setTagInputValue("");
+      onChange(previousTags => [...previousTags, tagInputValue]);
+      setTagInputValue('');
     }
   };
 
   const handleRemoveTag = (tagName: string) => {
-    onChange((previousTags) => previousTags.filter((tag) => tag !== tagName));
+    onChange(previousTags => previousTags.filter(tag => tag !== tagName));
   };
 
   return (
     <section
       className={`${
-        customClass?.inputTagContainerElement || "input-tag-container-element"
+        customClass?.inputTagContainerElement || 'input-tag-container-element'
       } input-tag-container`}
       onClick={() => inputTagRef.current!.focus()}
     >
       <label
         htmlFor="tag-input"
         className={`${
-          customClass?.inputTagLabelElement || "input-tag-label-element"
+          customClass?.inputTagLabelElement || 'input-tag-label-element'
         } input-tag-label ${theme}-input-tag-label`}
-        style={{ ...labelStyleProps, display: hideLabel ? "none" : "block" }}
+        style={{ ...labelStyleProps, display: hideLabel ? 'none' : 'block' }}
       >
         {label}
       </label>
       <ul
         className={`${
           customClass?.inputTagListContainerElement ||
-          "input-tag-list-container-element"
+          'input-tag-list-container-element'
         } input-tag-list-container ${theme}-input-tag-list-container`}
         style={{
-          cursor: disabled ? "default" : "text",
+          cursor: disabled ? 'default' : 'text',
           ...tagsContainerStyleProps,
         }}
       >
-        {value.map((tag) => (
+        {value.map(tag => (
           <Fragment key={tag}>
             <Tag
               customTagItemClass={customClass?.inputTagTagItemElement}
@@ -105,11 +105,11 @@ export default function InputTag({
             ref={inputTagRef}
             type="text"
             className={`${
-              customClass?.inputTagInputElement || "input-tag-input-element"
+              customClass?.inputTagInputElement || 'input-tag-input-element'
             } input-tag-input ${theme}-input-tag-input`}
             value={tagInputValue}
             onKeyDown={handleSetTags}
-            onChange={(event) => setTagInputValue(event.target.value)}
+            onChange={event => setTagInputValue(event.target.value)}
             autoFocus={autoFocus}
             minLength={1}
             maxLength={maxTagsValue}

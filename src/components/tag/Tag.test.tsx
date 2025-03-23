@@ -1,14 +1,14 @@
-import "@testing-library/jest-dom";
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import Tag from "./Tag";
-import type { TagProps } from "./Tag.types";
+import '@testing-library/jest-dom';
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Tag from './Tag';
+import type { TagProps } from './Tag.types';
 
-describe("Tag Component", () => {
+describe('Tag Component', () => {
   const setup = (propsOverride: Partial<TagProps> = {}) => {
     const onRemoveTagMock = jest.fn();
     const defaultProps: TagProps = {
-      tagName: "React",
+      tagName: 'React',
       onRemoveTag: onRemoveTagMock,
     };
 
@@ -18,51 +18,51 @@ describe("Tag Component", () => {
     };
   };
 
-  test("renders the tag name", () => {
+  test('renders the tag name', () => {
     setup();
-    expect(screen.getByText("React")).toBeInTheDocument();
+    expect(screen.getByText('React')).toBeInTheDocument();
   });
 
-  test("calls onRemoveTag when remove button is clicked", () => {
+  test('calls onRemoveTag when remove button is clicked', () => {
     const { onRemoveTagMock } = setup();
-    const removeBtn = screen.getByRole("button");
+    const removeBtn = screen.getByRole('button');
 
     fireEvent.click(removeBtn);
 
-    expect(onRemoveTagMock).toHaveBeenCalledWith("React");
+    expect(onRemoveTagMock).toHaveBeenCalledWith('React');
     expect(onRemoveTagMock).toHaveBeenCalledTimes(1);
   });
 
-  test("hides remove button when disabled is true", () => {
+  test('hides remove button when disabled is true', () => {
     setup({ disabled: true });
 
     // Expect the remove button to not be visible
-    const removeBtn = screen.queryByRole("button");
+    const removeBtn = screen.queryByRole('button');
     expect(removeBtn).toBeNull();
   });
 
-  test("applies custom class names", () => {
+  test('applies custom class names', () => {
     setup({
-      customTagItemClass: "custom-tag-class",
-      customRemoveButtonClass: "custom-remove-btn-class",
-      customTagContentClass: "custom-content-class",
+      customTagItemClass: 'custom-tag-class',
+      customRemoveButtonClass: 'custom-remove-btn-class',
+      customTagContentClass: 'custom-content-class',
     });
 
-    expect(screen.getByText("React").className).toMatch(/custom-content-class/);
-    const removeBtn = screen.getByRole("button");
+    expect(screen.getByText('React').className).toMatch(/custom-content-class/);
+    const removeBtn = screen.getByRole('button');
     expect(removeBtn.className).toMatch(/custom-remove-btn-class/);
   });
 
-  test("applies inline styles", () => {
+  test('applies inline styles', () => {
     setup({
-      tagsStyleProps: { backgroundColor: "red" },
-      removeTagBtnStyleProps: { color: "blue" },
+      tagsStyleProps: { backgroundColor: 'red' },
+      removeTagBtnStyleProps: { color: 'blue' },
     });
 
-    const tagItem = screen.getByText("React").closest("li");
-    const removeBtn = screen.getByRole("button");
+    const tagItem = screen.getByText('React').closest('li');
+    const removeBtn = screen.getByRole('button');
 
-    expect(tagItem).toHaveStyle("background-color: red");
-    expect(removeBtn).toHaveStyle("color: blue");
+    expect(tagItem).toHaveStyle('background-color: red');
+    expect(removeBtn).toHaveStyle('color: blue');
   });
 });

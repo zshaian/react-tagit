@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import InputTag from "./InputTag";
+import type { Meta, StoryObj } from '@storybook/react';
+import InputTag from './InputTag';
+import { useState } from 'react';
 
 const meta: Meta<typeof InputTag> = {
   component: InputTag,
@@ -8,12 +9,15 @@ const meta: Meta<typeof InputTag> = {
 export default meta;
 
 export const RenderInputTag: StoryObj<typeof InputTag> = {
-  render: () => (
-    <InputTag
-      theme="theme-3"
-      initialTags={["first tag", "second tag", "third tag"]}
-      onCreateTag={(newTag, tags) => console.log(newTag, tags)}
-      onRemoveTag={(removedTag, tags) => console.log(removedTag, tags)}
-    />
-  ),
+  render: function Render() {
+    const [tags, setTags] = useState<Array<string>>([]);
+    return (
+      <InputTag
+        value={tags}
+        onChange={setTags}
+        theme="theme-3"
+        separator="Space"
+      />
+    );
+  },
 };

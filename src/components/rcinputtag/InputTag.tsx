@@ -58,7 +58,7 @@ export default function InputTag({
   };
 
   return (
-    <section
+    <div
       className={`${
         customClass?.inputTagContainerElement || 'input-tag-container-element'
       } input-tag-container`}
@@ -120,6 +120,6 @@ export default function InputTag({
           />
         </li>
       </ul>
-    </section>
+    </div>
   );
 }

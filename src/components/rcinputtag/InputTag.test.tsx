@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import type { InputTagProps } from './InputTag.stories.types';
+import type { InputTagProps } from './InputTag.types';
 import InputTag from './InputTag';
 
 describe('InputTag Component', () => {

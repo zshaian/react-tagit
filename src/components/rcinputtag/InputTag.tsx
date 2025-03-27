@@ -2,12 +2,13 @@ import React from 'react';
 import { Tag } from '../tag';
 import { Fragment, useRef, useState } from 'react';
 import './InputTag.css';
-import type { InputTagProps } from './InputTag.stories.types';
+import type { InputTagProps } from './InputTag.types';
 
 export default function InputTag({
   autoFocus = false,
   customClass,
   disabled = false,
+  inputTagContainerStyleProps,
   labelStyleProps,
   inputStyleProps,
   tagsContainerStyleProps,
@@ -62,6 +63,7 @@ export default function InputTag({
       className={`${
         customClass?.inputTagContainerElement || 'input-tag-container-element'
       } input-tag-container`}
+      style={inputTagContainerStyleProps}
       onClick={() => inputTagRef.current!.focus()}
     >
       <label

@@ -24,7 +24,7 @@
   ],
   "author": "shaian",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "description": "Simple input tag component for react",
   "homepage": "https://github.com/zshaian/react-tagit",
   "repository": {

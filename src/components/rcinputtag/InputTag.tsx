@@ -18,6 +18,7 @@ export default function InputTag({
   label = 'Tags',
   maxTags,
   maxTagsValue,
+  name = 'tags',
   separator = 'Enter',
   theme,
   value,
@@ -40,6 +41,9 @@ export default function InputTag({
   const separatorTriggerKey = separator === 'Enter' ? 'Enter' : ' ';
 
   const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
     if (event.key === 'Backspace' && !valueIsNotEmpty && value.length > 0) {
       handleRemoveTag(value[value.length - 1]);
     }
@@ -115,6 +119,7 @@ export default function InputTag({
             autoFocus={autoFocus}
             minLength={1}
             maxLength={maxTagsValue}
+            name={name}
             style={inputStyleProps}
             onBlur={onBlur}
             onFocus={onFocus}

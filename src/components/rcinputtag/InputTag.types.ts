@@ -20,6 +20,7 @@ export type InputTagProps = {
   label?: string;
   maxTags?: number;
   maxTagsValue?: number;
+  name?:string;
   separator?: 'Enter' | 'Space';
   theme?: 'theme-1' | 'theme-2' | 'theme-3';
   value: Array<string>;

@@ -15,11 +15,25 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "input",
+    "react-component",
+    "react-tags",
+    "custom-component",
+    "input-tag"
+  ],
+  "author": "shaian",
   "license": "MIT",
   "type": "commonjs",
-  "description": "",
+  "description": "Simple input tag component for react",
+  "homepage": "https://github.com/zshaian/react-tagit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zshaian/react-tagit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zshaian/react-tagit/issues"
+  },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

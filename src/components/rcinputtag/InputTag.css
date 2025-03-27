@@ -25,17 +25,15 @@
   background-color: transparent;
 }
 
-.input-tag-label {
-  font-weight: bold;
-}
-
+.input-tag-label,
 .theme-1-input-tag-label,
 .theme-2-input-tag-label,
 .theme-3-input-tag-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 500;
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .theme-1-input-tag-list-container,

@@ -9,7 +9,7 @@ A simple and customizable Input Tag Component for React.
 
 ## Demo
 
-![Demo](./src/images/demo.gif)
+![Demo](https://raw.githubusercontent.com/zshaian/react-tagit/refs/heads/main/src/images/demo.gif)
 
 ## Table of Contents
 
@@ -124,7 +124,7 @@ You can use one of the predefined themes:
   <InputTag theme="theme-1" />
   ```
 
-  ![Theme 1 Demo](./src/images/theme-1-demo.jpg)
+  ![Theme 1 Demo](https://raw.githubusercontent.com/zshaian/react-tagit/refs/heads/main/src/images/theme-1-demo.jpg)
 
 - **Theme 2**
 
@@ -132,13 +132,13 @@ You can use one of the predefined themes:
   <InputTag theme="theme-2" />
   ```
 
-  ![Theme 2 Demo](./src/images/theme-2-demo.jpg)
+  ![Theme 2 Demo](https://raw.githubusercontent.com/zshaian/react-tagit/refs/heads/main/src/images/theme-2-demo.jpg)
 
 - **Theme 3**
   ```tsx
   <InputTag theme="theme-3" />
   ```
-  ![Theme 3 Demo](./src/images/theme-3-demo.jpg)
+  ![Theme 3 Demo](https://raw.githubusercontent.com/zshaian/react-tagit/refs/heads/main/src/images/theme-3-demo.jpg)
 
 ### Custom Classes
 

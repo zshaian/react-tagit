@@ -84,11 +84,11 @@ Here are the list of the `props` that you can add pass into the component
 |maxTagsValue|`number`|`infinite`|Maximum number of characters per tag.|
 |name|`string`|`tags`|Name attribute for the input element.|
 |separator|`'Enter' \| 'Space'`|`'Enter'`|The key that triggers tag creation.|
-|theme|`'theme-1' \| 'theme-2' \| 'theme-3'` |Available themes for styling the component.|
-|value|`Array<string>`||Current tag values.|
-|onChange|`React.Dispatch<React.SetStateAction<Array<string>>>`||Function to update the tag values.|
-|onFocus|`(event: React.FocusEvent<HTMLInputElement>) => void`|`() => {}`|Callback when the input gains focus.|
-|onBlur|`(event: React.FocusEvent<HTMLInputElement>) => void`|`() => {}`|Callback when the input loses focus.|
+|theme|`'theme-1' \| 'theme-2' \| 'theme-3'` ||Available themes for styling the component.
+|value|`[]`||Current tag values.|
+|onChange|`function`||Function to update the tag values.|
+|onFocus|`function`|`() => {}`|Callback when the input gains focus.|
+|onBlur|`function`|`() => {}`|Callback when the input loses focus.|
 
 ## Styling & Theming
 

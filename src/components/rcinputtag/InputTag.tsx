@@ -33,17 +33,26 @@ export default function InputTag({
     value.filter(
       tag => tag.toLowerCase().trim() === tagInputValue.toLowerCase().trim(),
     ).length === 0;
+
   const valueIsNotEmpty =
     tagInputValue.trim() !== '' && tagInputValue.length > 0;
+
+  // Check if the current number of tags is below the maxTags limit.
+  // Defaults to true when no max is set (unlimited tags).
   const isLessThanMaxTags =
     maxTags && maxTags > 0 ? value.length < maxTags : true;
 
+  // Return the key that triggers tag separation. Space key is represented as " ".
   const separatorTriggerKey = separator === 'Enter' ? 'Enter' : ' ';
 
   const handleSetTags = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      // If the InputTag component is inside the form this will prevent the form,
+      // from submitting when the enter key is pressed.
       event.preventDefault();
     }
+    // Remove the tag before the input if Backspace is pressed,
+    // the input is empty, and there are existing tags.
     if (event.key === 'Backspace' && !valueIsNotEmpty && value.length > 0) {
       handleRemoveTag(value[value.length - 1]);
     }
@@ -117,7 +126,6 @@ export default function InputTag({
             onKeyDown={handleSetTags}
             onChange={event => setTagInputValue(event.target.value)}
             autoFocus={autoFocus}
-            minLength={1}
             maxLength={maxTagsValue}
             name={name}
             style={inputStyleProps}

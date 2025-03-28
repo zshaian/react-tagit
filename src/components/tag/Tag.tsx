@@ -29,6 +29,8 @@ export default function Tag({
           display: disabled ? 'none' : 'inline-block',
         }}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+          // Stop the click from bubbling up to the parent,
+          // which would otherwise focus the input element after deleting a tag.
           event.stopPropagation();
           onRemoveTag(tagName);
         }}

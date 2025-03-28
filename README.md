@@ -1,12 +1,29 @@
 # react-tagit
 
-Simple Input Tag Component For React
+![npm version](https://img.shields.io/npm/v/react-tagit)
+![license](https://img.shields.io/npm/l/react-tagit)
+![bundle size](https://img.shields.io/bundlephobia/minzip/react-tagit)
+![types](https://img.shields.io/npm/types/react-tagit)
+
+A simple and customizable Input Tag Component for React.
 
 ## Demo
 
+![Demo](./src/images/demo.gif)
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Props](#props)
+- [Styling & Theming](#styling--theming)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Installation
 
-You can install it using the package manager that you like
+Install the package using your preferred package manager:
 
 **NPM**
 
@@ -26,18 +43,20 @@ yarn add react-tagit
 pnpm add react-tagit
 ```
 
-Make sure that you have the necessary **peer dependecies** to use this package
+### Peer Dependencies
+
+Ensure you have the following peer dependencies installed:
 
 ```json
-  "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
+"peerDependencies": {
+  "react": "^19.0.0",
+  "react-dom": "^19.0.0"
+}
 ```
 
 ## Usage
 
-Let's see an example on how to use the `<InputTag>` component and some of the props that we can passed into it.
+Here’s an example of how to use the `<InputTag>` component:
 
 ```tsx
 import { InputTag } from 'react-tagit';
@@ -48,7 +67,7 @@ export default function App() {
 
   return (
     <form>
-      <InpTag
+      <InputTag
         separator="Space"
         theme="theme-1"
         maxTags={5}
@@ -62,41 +81,86 @@ export default function App() {
 }
 ```
 
-And as easy as that you have now an input tag component
+And that's it! You now have a fully functional input tag component.
 
 ## Props
 
-Here are the list of the `props` that you can add pass into the component
-|Props|Type|Default|Description|
-|-|-|-|-|
-|autoFocus|`boolean`|`false`|Autofocus the tag input element when the component mounts.|
-|customClass|`object`|`{}`|Custom classes for the elements of the InputTag component. These will override the default classes.|
-|disabled|`boolean`|`false`|Disable the InputTag component. When disabled, the remove button for each tag is hidden.|
-|inputTagContainerStyleProps|`object`|`{}`|Style props for the container element.|
-|labelStyleProps|`object`|`{}`|Style props for the label element.|
-|inputStyleProps|`object`|`{}`|Style props for the input element.|
-|tagsContainerStyleProps|`object`|`{}`|Style props for the tags list container.|
-|tagsStyleProps|`object`|`{}`|Style props for individual tag elements.|
-|removeTagBtnStyleProps|`object`|`{}`|Style props for the remove button on each tag.|
-|hideLabel|`boolean`|`false`|Whether to hide the label.|
-|label|`string`|`tags`|Label for the input.|
-|maxTags|`number`|`infinite`|Maximum number of tags allowed.|
-|maxTagsValue|`number`|`infinite`|Maximum number of characters per tag.|
-|name|`string`|`tags`|Name attribute for the input element.|
-|separator|`'Enter' \| 'Space'`|`'Enter'`|The key that triggers tag creation.|
-|theme|`'theme-1' \| 'theme-2' \| 'theme-3'` ||Available themes for styling the component.
-|value|`[]`||Current tag values.|
-|onChange|`function`||Function to update the tag values.|
-|onFocus|`function`|`() => {}`|Callback when the input gains focus.|
-|onBlur|`function`|`() => {}`|Callback when the input loses focus.|
+Here’s a list of props you can pass to the `<InputTag>` component:
+
+| Prop                          | Type                                  | Default     | Description                                                           |
+| ----------------------------- | ------------------------------------- | ----------- | --------------------------------------------------------------------- |
+| `autoFocus`                   | `boolean`                             | `false`     | Autofocus the tag input element when the component mounts.            |
+| `customClass`                 | `object`                              | `{}`        | Custom classes for the elements of the InputTag component.            |
+| `disabled`                    | `boolean`                             | `false`     | Disable the InputTag component. Hides the remove button for each tag. |
+| `inputTagContainerStyleProps` | `object`                              | `{}`        | Style props for the container element.                                |
+| `labelStyleProps`             | `object`                              | `{}`        | Style props for the label element.                                    |
+| `inputStyleProps`             | `object`                              | `{}`        | Style props for the input element.                                    |
+| `tagsContainerStyleProps`     | `object`                              | `{}`        | Style props for the tags list container.                              |
+| `tagsStyleProps`              | `object`                              | `{}`        | Style props for individual tag elements.                              |
+| `removeTagBtnStyleProps`      | `object`                              | `{}`        | Style props for the remove button on each tag.                        |
+| `hideLabel`                   | `boolean`                             | `false`     | Whether to hide the label.                                            |
+| `label`                       | `string`                              | `'Tags'`    | Label for the input.                                                  |
+| `maxTags`                     | `number`                              | `infinite`  | Maximum number of tags allowed.                                       |
+| `maxTagsValue`                | `number`                              | `infinite`  | Maximum number of characters per tag.                                 |
+| `name`                        | `string`                              | `'tags'`    | Name attribute for the input element.                                 |
+| `separator`                   | `'Enter' \| 'Space'`                  | `'Enter'`   | The key that triggers tag creation.                                   |
+| `theme`                       | `'theme-1' \| 'theme-2' \| 'theme-3'` | `undefined` | Available themes for styling the component.                           |
+| `value`                       | `Array<string>`                       | `[]`        | Current tag values.                                                   |
+| `onChange`                    | `(tags: Array<string>) => void`       | `undefined` | Function to update the tag values.                                    |
+| `onFocus`                     | `(event: FocusEvent) => void`         | `() => {}`  | Callback when the input gains focus.                                  |
+| `onBlur`                      | `(event: FocusEvent) => void`         | `() => {}`  | Callback when the input loses focus.                                  |
 
 ## Styling & Theming
 
-`react-tagit` comes with theme that you can use, you can also target the elements of the
-`InputTag` component using classes, or using the `style` props. so that designing your own
-`InputTag` component is much less trouble.
+`react-tagit` comes with built-in themes and allows you to customize styles using class names or inline styles.
 
-**Here are the list of the classes if you want to target some elements of `InputTag` component**
+### Built-in Themes
+
+You can use one of the predefined themes:
+
+- **Theme 1**
+
+  ```tsx
+  <InputTag theme="theme-1" />
+  ```
+
+  ![Theme 1 Demo](./src/images/theme-1-demo.jpg)
+
+- **Theme 2**
+
+  ```tsx
+  <InputTag theme="theme-2" />
+  ```
+
+  ![Theme 2 Demo](./src/images/theme-2-demo.jpg)
+
+- **Theme 3**
+  ```tsx
+  <InputTag theme="theme-3" />
+  ```
+  ![Theme 3 Demo](./src/images/theme-3-demo.jpg)
+
+### Custom Classes
+
+You can override the default classes by passing a `customClass` object:
+
+```tsx
+<InputTag
+  customClass={{
+    inputTagContainerElement: 'custom-container',
+    inputTagLabelElement: 'custom-label',
+    inputTagListContainerElement: 'custom-list',
+    inputTagTagItemElement: 'custom-tag-item',
+    inputTagTagRemoveBtnElement: 'custom-remove-btn',
+    inputTagTagContentElement: 'custom-tag-content',
+    inputTagInputElement: 'custom-input',
+  }}
+/>
+```
+
+### Default Classes
+
+Here are the default class names you can target for styling:
 
 - `input-tag-container-element`
 - `input-tag-label-element`
@@ -106,18 +170,40 @@ Here are the list of the `props` that you can add pass into the component
 - `input-tag-tag-content-element`
 - `input-tag-input-element`
 
-**You can also override these classes and create your own**
+## Development
 
-```tsx
-<InputTag customClass={{
-    inputTagContainerElement: 'new_class_here',
-    inputTagLabelElement: 'new_class_here',
-    inputTagListContainerElement: 'new_class_here',
-    inputTagTagItemElement:'new_class_here',
-    inputTagTagRemoveBtnElement: 'new_class_here',
-    inputTagTagContentElement: 'new_class_here',
-    inputTagInputElement: 'new_class_here',
-}}>
+### Testing
+
+This project uses [Jest](https://jestjs.io/) and [Testing Library](https://testing-library.com/) for testing. To run the tests:
+
+```bash
+npm run test
 ```
 
-## Development
+### Storybook
+
+The project uses [Storybook](https://storybook.js.org/) for component documentation and previews. To start Storybook:
+
+```bash
+npm run storybook
+```
+
+This will start a local server and provide a preview URL.
+
+### Building
+
+The project uses [Rollup](https://rollupjs.org/) as the bundler. To build the project:
+
+```bash
+npm run build
+```
+
+The compiled code will be available in the `dist` folder.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).

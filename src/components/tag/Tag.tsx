@@ -15,15 +15,15 @@ export default function Tag({
 }: TagProps) {
   return (
     <li
-      className={`${
+      className={`input-tag-tag-item ${theme}-input-tag-tag-item ${
         customTagItemClass || 'input-tag-tag-item-element'
-      } input-tag-tag-item ${theme}-input-tag-tag-item`}
+      }`}
       style={tagsStyleProps}
     >
       <button
-        className={`${
+        className={`input-tag-tag-remove-btn ${theme}-input-tag-tag-remove-btn ${
           customRemoveButtonClass || 'input-tag-tag-remove-btn-element'
-        } input-tag-tag-remove-btn ${theme}-input-tag-tag-remove-btn`}
+        }`}
         style={{
           ...removeTagBtnStyleProps,
           display: disabled ? 'none' : 'inline-block',
@@ -36,9 +36,9 @@ export default function Tag({
         ✕
       </button>
       <span
-        className={`${
+        className={`input-tag-tag-content ${theme}-input-tag-tag-content ${
           customTagContentClass || 'input-tag-tag-content-element'
-        } input-tag-tag-content ${theme}-input-tag-tag-content`}
+        }`}
       >
         {tagName}
       </span>

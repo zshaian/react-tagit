@@ -64,26 +64,26 @@ export default function InputTag({
 
   return (
     <div
-      className={`${
+      className={`input-tag-container ${
         customClass?.inputTagContainerElement || 'input-tag-container-element'
-      } input-tag-container`}
+      }`}
       style={inputTagContainerStyleProps}
       onClick={() => inputTagRef.current!.focus()}
     >
       <label
         htmlFor="tag-input"
-        className={`${
+        className={`input-tag-label ${theme}-input-tag-label ${
           customClass?.inputTagLabelElement || 'input-tag-label-element'
-        } input-tag-label ${theme}-input-tag-label`}
+        }`}
         style={{ ...labelStyleProps, display: hideLabel ? 'none' : 'block' }}
       >
         {label}
       </label>
       <ul
-        className={`${
+        className={`input-tag-list-container ${theme}-input-tag-list-container ${
           customClass?.inputTagListContainerElement ||
           'input-tag-list-container-element'
-        } input-tag-list-container ${theme}-input-tag-list-container`}
+        }`}
         style={{
           cursor: disabled ? 'default' : 'text',
           ...tagsContainerStyleProps,
@@ -110,9 +110,9 @@ export default function InputTag({
             aria-label={`${label} input`}
             ref={inputTagRef}
             type="text"
-            className={`${
+            className={`input-tag-input ${theme}-input-tag-input ${
               customClass?.inputTagInputElement || 'input-tag-input-element'
-            } input-tag-input ${theme}-input-tag-input`}
+            }`}
             value={tagInputValue}
             onKeyDown={handleSetTags}
             onChange={event => setTagInputValue(event.target.value)}

@@ -11,6 +11,8 @@ A simple and customizable Input Tag Component for React.
 
 ![Demo](https://raw.githubusercontent.com/zshaian/react-tagit/refs/heads/main/src/images/demo.gif)
 
+Check out the live playground on CodeSandbox [Playground](https://codesandbox.io/p/sandbox/react-tagit-9n6nvz)
+
 ## Table of Contents
 
 - [Installation](#installation)
